@@ -69,8 +69,8 @@ namespace RemoteConsole
 
 	public enum LogLevel
 	{
-		All,
-		WarningsAndErrors,
-		ErrorsOnly
+		All = 0,
+		WarningsAndErrors = 1,
+		ErrorsOnly = 2
 	}
 }

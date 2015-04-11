@@ -8,7 +8,7 @@ namespace RemoteConsole
 	/// </summary>
 	public class RemoteConsoleBehaviour : MonoBehaviour
 	{
-		private RemoteConsole _console;
+		private readonly RemoteConsole _console = new RemoteConsole();
 
 		/// <summary>
 		/// Log level filter
@@ -20,10 +20,9 @@ namespace RemoteConsole
 		/// </summary>
 		public string URL { get { return _console.URL; } set { _console.URL = value; } }
 
-		public void Start()
+		public void Awake()
 		{
 			DontDestroyOnLoad(gameObject);
-			_console = new RemoteConsole();
 			Application.RegisterLogCallback(_console.HandleLog);
 			StartCoroutine(SendLogs());
 		}

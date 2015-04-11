@@ -1,20 +1,16 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using UnityEditor;
 
 namespace RemoteConsole
 {
+	[CustomEditor(typeof (RemoteConsoleBehaviour))]
+	public class RemoteConsoleBehaviourEditor : Editor
+	{
+		public override void OnInspectorGUI()
+		{
+			var behaviour = (RemoteConsoleBehaviour) target;
 
-public class RemoteConsoleBehaviourEditor : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
+			behaviour.URL = EditorGUILayout.TextField("URL: ", behaviour.URL);
+			behaviour.LogLevel = (LogLevel)EditorGUILayout.EnumPopup("Log Level: ", behaviour.LogLevel);
+		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-}
-
 }
