@@ -1,10 +1,20 @@
 ﻿using System;
+using RemoteConsole;
 using UnityEngine;
 
 public class TestBehaviour : MonoBehaviour
 {
+	private RemoteConsoleBehaviour _behaviour;
+
+	private void Awake()
+	{
+		_behaviour = FindObjectOfType<RemoteConsoleBehaviour>();
+	}
+
 	private void OnGUI()
 	{
+		_behaviour.URL = GUILayout.TextField(_behaviour.URL);
+
 		if (GUILayout.Button("LOG"))
 			Debug.Log("Log");
 

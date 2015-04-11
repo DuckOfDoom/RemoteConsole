@@ -7,6 +7,7 @@ namespace RemoteConsole
 	public class RemoteConsole
 	{
 		private const string Separator = "|";
+		private const string LogURIPrefix = "?log=";
 
 		private readonly List<string> _logs = new List<string>();
 
@@ -20,7 +21,7 @@ namespace RemoteConsole
 			if (_logs.Count <= 0)
 				return null;
 
-			return _url + "?log=" + _logs[_logs.Count - 1];
+			return _url + LogURIPrefix + _logs[_logs.Count - 1];
 		}
 
 		/// <summary>
