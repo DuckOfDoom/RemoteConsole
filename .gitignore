@@ -1,0 +1,9 @@
+Assets/UnityVS/
+Library/
+obj/
+Temp/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.DotSettings
