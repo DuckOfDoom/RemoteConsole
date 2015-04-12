@@ -6,12 +6,12 @@ namespace RemoteConsole
 {
 	public class RemoteConsole
 	{
+		private string _url = "127.0.0.1:8080";
+
 		private const string Separator = "|";
 		private const string LogURIPrefix = "?log=";
 
 		private readonly List<string> _logs = new List<string>();
-
-		private string _url = "127.0.0.1:8080";
 
 		public LogLevel LogLevel { get; set; }
 		public string URL { get { return _url; } set { _url = value; } }

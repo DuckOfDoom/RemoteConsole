@@ -8,6 +8,7 @@ namespace RemoteConsole
 	/// </summary>
 	public class RemoteConsoleBehaviour : MonoBehaviour
 	{
+		[SerializeField] private string _url;
 		private readonly RemoteConsole _console = new RemoteConsole();
 
 		/// <summary>
@@ -18,7 +19,15 @@ namespace RemoteConsole
 		/// <summary>
 		/// URL to send requests to
 		/// </summary>
-		public string URL { get { return _console.URL; } set { _console.URL = value; } }
+		public string URL
+		{
+			get { return _url; }
+			set
+			{
+				_url = value;
+				_console.URL = value;
+			}
+		}
 
 		public void Awake()
 		{
@@ -32,17 +41,19 @@ namespace RemoteConsole
 			while (true)
 			{
 				var requestString = _console.GetNextLogRequest();
-				if (string.IsNullOrEmpty(requestString))
-					yield return null;
+				if (!string.IsNullOrEmpty(requestString))
+				{
+					var www = new WWW(requestString);
 
-				var www = new WWW(requestString);
+					yield return www;
 
-				yield return www;
+					if (string.IsNullOrEmpty(www.error))
+						_console.OnLogSent();
+					else
+						Debug.LogError("ERROR: " + www.error);
+				}
 
-				if (string.IsNullOrEmpty(www.error))
-					_console.OnLogSent();
-				else
-					yield return null;
+				yield return null;
 			}
 		}
 	}

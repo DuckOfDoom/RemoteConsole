@@ -16,7 +16,7 @@ public class TestBehaviour : MonoBehaviour
 		var width = GUILayout.Width(Screen.width / 2f);
 		var height = GUILayout.Height(Screen.height / 5f);
 
-		_behaviour.URL = GUILayout.TextField(_behaviour.URL, width, height);
+		//_behaviour.URL = GUILayout.TextField(_behaviour.URL, width, height);
 
 		if (GUILayout.Button("LOG", width, height))
 			Debug.Log("Log");
