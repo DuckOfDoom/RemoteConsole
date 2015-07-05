@@ -1,16 +1,8 @@
 ﻿using System;
-using RemoteConsole;
 using UnityEngine;
 
 public class TestBehaviour : MonoBehaviour
 {
-	private RemoteConsoleBehaviour _behaviour;
-
-	private void Awake()
-	{
-		_behaviour = FindObjectOfType<RemoteConsoleBehaviour>();
-	}
-
 	private void OnGUI()
 	{
 		var width = GUILayout.Width(Screen.width / 2f);

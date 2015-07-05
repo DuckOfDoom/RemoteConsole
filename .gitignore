@@ -1,7 +1,7 @@
-Assets/UnityVS/
-Library/
-obj/
-Temp/
+Project/Assets/UnityVS/
+Project/Library/
+Project/obj/
+Project/Temp/
 *.csproj
 *.unityproj
 *.sln
