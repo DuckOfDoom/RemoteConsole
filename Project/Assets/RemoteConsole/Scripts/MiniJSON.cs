@@ -6,6 +6,7 @@ using System.Text;
 
 namespace RemoteConsole
 {
+	// Credits to: https://gist.github.com/darktable/1411710
 	namespace MiniJSON
 	{
 		// Example usage:
