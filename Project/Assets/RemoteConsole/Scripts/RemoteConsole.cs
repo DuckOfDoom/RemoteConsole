@@ -83,6 +83,9 @@ namespace RemoteConsole
 		/// </summary>
 		private void HandleLog(string log, string stackTrace, LogType type)
 		{
+			if (!_sendFromEditor && Application.isEditor)
+				return;
+
 			switch (type)
 			{
 				case LogType.Log:
@@ -122,9 +125,6 @@ namespace RemoteConsole
 		{
 			while (true)
 			{	
-				if (!_sendFromEditor && Application.isEditor)
-					yield return null;
-
 				if (_logs.Any())
 				{
 					var log = _logs.Peek();
